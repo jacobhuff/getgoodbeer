@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Error = () => {
+export const InsufficientCheckins = () => {
   return (
     <div className='error-message'>
       <i className='error-icon fas fa-exclamation-triangle'></i>
-      <h1>There was an error processing your request</h1>
+      <h1>You have not checked in enough beers to give recommendations</h1>
       <Link to='/'>
-        <button>Try Again</button>
+        <button>Home</button>
       </Link>
     </div>
   );

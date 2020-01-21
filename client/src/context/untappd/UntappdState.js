@@ -2,12 +2,12 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import UntappdContext from './untappdContext';
 import UntappdReducer from './untappdReducer';
-import { SET_LOADING, GET_USER_BEERS } from '../types';
+import { SET_LOADING, GET_RECOMMENDED_BEERS } from '../types';
 
 const UntappdState = props => {
   const initialState = {
     loading: false,
-    userBeers: {}
+    recommendedBeers: {}
   };
 
   const [state, dispatch] = useReducer(UntappdReducer, initialState);
@@ -18,7 +18,7 @@ const UntappdState = props => {
   };
 
   // Get Summoner Stats
-  const getUserBeers = async (username, lat, long) => {
+  const getRecommendedBeers = async (username, lat, long) => {
     setLoading();
 
     const url = encodeURI(
@@ -26,26 +26,22 @@ const UntappdState = props => {
     );
 
     try {
-      const userBeers = await axios.get(url);
+      const recommendedBeers = await axios.get(url);
 
-      console.log('DATA: ' + JSON.stringify(userBeers.data.response.checkins));
-
-      // dispatch({
-      //   type: GET_USER_BEERS,
-      //   payload: userBeers.data
-      // });
-    } catch (err) {
-      console.log('ERROR: ' + err);
-    }
+      dispatch({
+        type: GET_RECOMMENDED_BEERS,
+        payload: recommendedBeers.data
+      });
+    } catch (err) {}
   };
 
   return (
     <UntappdContext.Provider
       value={{
         loading: state.loading,
-        userBeers: state.userBeers,
+        recommendedBeers: state.recommendedBeers,
         setLoading,
-        getUserBeers
+        getRecommendedBeers
       }}
     >
       {props.children}

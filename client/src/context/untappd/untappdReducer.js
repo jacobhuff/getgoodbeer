@@ -1,4 +1,4 @@
-import { SET_LOADING, GET_USER_BEERS } from '../types';
+import { SET_LOADING, GET_RECOMMENDED_BEERS } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -7,10 +7,10 @@ export default (state, action) => {
         ...state,
         loading: true
       };
-    case GET_USER_BEERS:
+    case GET_RECOMMENDED_BEERS:
       return {
         ...state,
-        userBeers: action.payload
+        recommendedBeers: action.payload
       };
     default:
       return state;

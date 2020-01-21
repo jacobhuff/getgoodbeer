@@ -8,7 +8,7 @@ export const Search = () => {
 
   // Context
   const untappdContext = useContext(UntappdContext);
-  const { getUserBeers } = untappdContext;
+  const { getRecommendedBeers } = untappdContext;
 
   // State
   const [username, setUsername] = useState('');
@@ -47,7 +47,7 @@ export const Search = () => {
     var lat = position.coords.latitude;
     var long = position.coords.longitude;
 
-    await getUserBeers(username, lat, long);
+    await getRecommendedBeers(username, lat, long);
     setUsername('');
 
     // Redirect
@@ -63,18 +63,20 @@ export const Search = () => {
   };
 
   return (
-    <div>
+    <div className='search-container'>
       <p>Enter your Untappd username</p>
       <form onSubmit={onSubmit}>
         <input
           onClick={onClick}
           onChange={onChange}
+          autoComplete='off'
           type='text'
           name='username'
           placeholder='Username...'
           value={username}
+          className='search-input'
         />
-        <input value='Search' type='submit' />
+        <input value='Search' type='submit' className='search-submit' />
       </form>
     </div>
   );

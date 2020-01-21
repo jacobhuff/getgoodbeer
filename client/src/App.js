@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Search } from './components/layout/Search';
-
-import UntappdState from './context/untappd/UntappdState';
 import { BeerList } from './components/beers/BeerList';
+import UntappdState from './context/untappd/UntappdState';
+
+import './App.css';
 
 function App() {
   return (

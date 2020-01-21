@@ -1,1 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
+.container {
+  max-width: 1100px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/* Errors */
+.error-message {
+  width: 700px;
+  height: 500px;
+  margin: 100px auto;
+  text-align: center;
+  color: white;
+}
+.error-icon {
+  font-size: 48px;
+}
+.error-message button,
+.home button {
+  width: 125px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  font: inherit;
+  font-size: 20px;
+  transition: 0.2s ease-in;
+}
+.home button {
+  height: 50px;
+}
+.error-message button:hover,
+.home button:hover {
+  background-color: rgb(229, 216, 182);
+}
+
+/* Search Container */
+.search-container {
+  margin-top: 200px;
+}
+.search-container p {
+  font-size: 32px;
+  color: white;
+}
+.search-input,
+.search-submit {
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  background-color: white;
+}
+.search-input {
+  width: 300px;
+  height: 55px;
+  padding-left: 10px;
+}
+.search-submit {
+  width: 75px;
+  height: 57px;
+  margin-left: 15px;
+  transition: 0.2s ease-in;
+}
+.search-submit:hover {
+  background-color: rgb(229, 216, 182);
+}
+
+/* Beer Cards */
+.beer-list-header {
+  margin-bottom: -5px;
+  width: 100%;
+  height: 50px;
+  float: left;
+}
+.info {
+  color: white;
+  font-size: 22px;
+  float: left;
+  text-align: left;
+  padding-left: 15px;
+  line-height: 50px;
+}
+.home {
+  float: right;
+  padding-right: 20px;
+}
+.beer-card {
+  float: left;
+  width: 333px;
+  height: 350px;
+  margin: 15.5px;
+  border: 1px solid white;
+  background-color: rgb(211, 195, 141);
+}
+.beer-card img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.beer-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.beer-style {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+.brewery-name {
+  font-size: 18px;
+  font-style: italic;
+}
+.checkin-location {
+  color: rgb(63, 87, 117);
+  font-style: italic;
+}
+.checkin-location span {
+  float: left;
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+}
+.brewery-website {
+  color: rgb(112, 100, 48);
+  font-size: 17px;
+  text-decoration: none;
+}
