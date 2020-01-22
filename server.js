@@ -71,21 +71,21 @@ app.get('/api', async (req, res) => {
     var numBeers = beers.data.response.beers.count;
 
     // Get rest of user beers if more than 50
-    // while (numBeers === 50) {
-    //   beers = await axios.get(
-    //     beers.data.response.pagination.next_url +
-    //       `?limit=50&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
-    // {
-    //   headers;
-    // }
-    //   );
+    while (numBeers === 50) {
+      beers = await axios.get(
+        beers.data.response.pagination.next_url +
+          `?limit=50&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
+    {
+      headers;
+    }
+      );
 
-    //   beers.data.response.beers.items.forEach(beer => {
-    //     allBeers.push(beer);
-    //   });
+      beers.data.response.beers.items.forEach(beer => {
+        allBeers.push(beer);
+      });
 
-    //   numBeers = beers.data.response.beers.count;
-    // }
+      numBeers = beers.data.response.beers.count;
+    }
 
     // FIND FAVORITE STYLES
     var beerStyles = [];
