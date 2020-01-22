@@ -75,9 +75,9 @@ app.get('/api', async (req, res) => {
       beers = await axios.get(
         beers.data.response.pagination.next_url +
           `?limit=50&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
-    {
-      headers;
-    }
+        {
+          headers
+        }
       );
 
       beers.data.response.beers.items.forEach(beer => {
