@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import UntappdContext from '../../context/untappd/untappdContext';
 import { useHistory } from 'react-router-dom';
+import { Spinner } from '../layout/Spinner';
 
 export const Search = () => {
   // History
@@ -8,7 +9,7 @@ export const Search = () => {
 
   // Context
   const untappdContext = useContext(UntappdContext);
-  const { getRecommendedBeers } = untappdContext;
+  const { getRecommendedBeers, loading } = untappdContext;
 
   // State
   const [username, setUsername] = useState('');
@@ -62,22 +63,26 @@ export const Search = () => {
     );
   };
 
-  return (
-    <div className='search-container'>
-      <p>Enter your Untappd username</p>
-      <form onSubmit={onSubmit}>
-        <input
-          onClick={onClick}
-          onChange={onChange}
-          autoComplete='off'
-          type='text'
-          name='username'
-          placeholder='Username...'
-          value={username}
-          className='search-input'
-        />
-        <input value='Search' type='submit' className='search-submit' />
-      </form>
-    </div>
-  );
+  if (loading) {
+    return <Spinner />;
+  } else {
+    return (
+      <div className='search-container'>
+        <p>Enter your Untappd username</p>
+        <form onSubmit={onSubmit}>
+          <input
+            onClick={onClick}
+            onChange={onChange}
+            autoComplete='off'
+            type='text'
+            name='username'
+            placeholder='Username...'
+            value={username}
+            className='search-input'
+          />
+          <input value='Search' type='submit' className='search-submit' />
+        </form>
+      </div>
+    );
+  }
 };

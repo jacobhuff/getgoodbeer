@@ -10,6 +10,7 @@ export default (state, action) => {
     case GET_RECOMMENDED_BEERS:
       return {
         ...state,
+        loading: false,
         recommendedBeers: action.payload
       };
     default:

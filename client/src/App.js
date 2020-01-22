@@ -5,6 +5,7 @@ import { BeerList } from './components/beers/BeerList';
 import UntappdState from './context/untappd/UntappdState';
 
 import './App.css';
+import './styles/Adaptive.css';
 
 function App() {
   return (
