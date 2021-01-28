@@ -57,6 +57,7 @@ app.get('/api', async (req, res) => {
     // Get User Beers
     var allBeers = [];
     console.log('Before First Call');
+    console.log(process.env.CLIENT_ID)
     var beers = await axios.get(
       url +
         `?limit=50&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
