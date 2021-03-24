@@ -1,6 +1,6 @@
 import { SET_LOADING, GET_RECOMMENDED_BEERS } from '../types';
 
-export default (state, action) => {
+var functionToExport = function (state, action) {
   switch (action.type) {
     case SET_LOADING:
       return {
@@ -16,4 +16,6 @@ export default (state, action) => {
     default:
       return state;
   }
-};
+}
+
+export default functionToExport;

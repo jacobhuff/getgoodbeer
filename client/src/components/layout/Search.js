@@ -31,13 +31,29 @@ export const Search = () => {
       alert('Please fill in all fields.');
     } else {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          successFunction,
-          errorFunction
-        );
+        navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          if (result.state === "granted") {
+            navigator.geolocation.getCurrentPosition(
+              successFunction,
+              errorFunction
+            );
+          } else if (result.state === "prompt") {
+            navigator.geolocation.getCurrentPosition(
+              successFunction,
+              errorFunction
+            );
+          } else if (result.state === "denied") {
+
+          }
+          result.onchange = function () {
+            console.log(result.state);
+          };
+        });
       } else {
         alert(
-          'Geolocation is not enabled in your browser. Please use a browser which supports it.'
+          'Geolocation is not available!'
         );
       }
     }

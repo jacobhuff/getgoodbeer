@@ -56,8 +56,6 @@ app.get('/api', async (req, res) => {
   try {
     // Get User Beers
     var allBeers = [];
-    console.log('Before First Call');
-    console.log(process.env.CLIENT_ID)
     var beers = await axios.get(
       url +
         `?limit=50&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
@@ -74,7 +72,6 @@ app.get('/api', async (req, res) => {
 
     // Get rest of user beers if more than 50
     while (numBeers === 50) {
-      console.log('NumBeers: ' + numBeers);
       beers = await axios.get(
         beers.data.response.pagination.next_url +
           `&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
@@ -140,7 +137,6 @@ app.get('/api', async (req, res) => {
     items = filterCheckins(checkins, favoriteStyles, items, allBeers);
     var counter = 1;
     while (checkins.data.response.pagination.next_url !== null && counter < 5) {
-      console.log('counter: ' + counter);
       checkins = await axios.get(
         checkins.data.response.pagination.next_url +
           `&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&radius=25`,
