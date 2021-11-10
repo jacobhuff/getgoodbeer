@@ -85,7 +85,7 @@ app.get('/api', async (req, res) => {
     //   });
 
     //   numBeers = beers.data.response.beers.count;
-    }
+    // }
 
     // FIND FAVORITE STYLES
     var beerStyles = [];
