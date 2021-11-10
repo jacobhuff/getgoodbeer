@@ -71,6 +71,7 @@ app.get('/api', async (req, res) => {
     var numBeers = beers.data.response.beers.count;
 
     // Get rest of user beers if more than 50
+<<<<<<< HEAD
     // while (numBeers === 50) {
     //   beers = await axios.get(
     //     beers.data.response.pagination.next_url +
@@ -86,6 +87,23 @@ app.get('/api', async (req, res) => {
 
     //   numBeers = beers.data.response.beers.count;
     // }
+=======
+    while (numBeers === 50) {
+      beers = await axios.get(
+        beers.data.response.pagination.next_url +
+          `&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
+        {
+          headers
+        }
+      );
+
+      beers.data.response.beers.items.forEach(beer => {
+        allBeers.push(beer);
+      });
+
+      numBeers = beers.data.response.beers.count;
+    }
+>>>>>>> b8ed6440d14e65494059d27fef8095f7a89f5f3d
 
     // FIND FAVORITE STYLES
     var beerStyles = [];
